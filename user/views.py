@@ -25,6 +25,7 @@ def user_login(request):
     form = loginBorrower(data=request.POST)
     if form.is_valid():
         #为了便捷，这里我用了Django自带的方法，这一步主要是对获取的登录信息，到对应的表中进行筛选，如果结果为空，说明账户或密码错误。
+        #考虑到之后是自己写sql语言并执行指令，这里你们自己改写即可，admin_login中也是一样
         borrower_object = models.Borrower.objects.filter(**form.cleaned_data).first()
         if not borrower_object:
             form.add_error("borrower_pwd", "账户或密码错误")

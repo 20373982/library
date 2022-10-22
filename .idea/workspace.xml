@@ -4,26 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32bb8d75-25d1-4430-9199-c8f6b4e9b144" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/user/library_model/Book.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/library_model/Borrow_record.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/library_model/Borrower.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/library_model/Default_record.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/library_model/Entry_record.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/library_model/Manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/library_model/Message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/library_model/Review.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/library_model/Topic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/library_model/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/middleware/auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/top.html" afterDir="false" />
+    <list default="true" id="32bb8d75-25d1-4430-9199-c8f6b4e9b144" name="变更" comment="变更">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,11 +101,23 @@
       <workItem from="1666182515294" duration="635000" />
       <workItem from="1666279450680" duration="2255000" />
       <workItem from="1666359853223" duration="3672000" />
-      <workItem from="1666399564706" duration="16720000" />
+      <workItem from="1666399564706" duration="17674000" />
     </task>
+    <task id="LOCAL-00001" summary="变更">
+      <created>1666419203078</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666419203078</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="变更" />
+    <option name="LAST_COMMIT_MESSAGE" value="变更" />
   </component>
 </project>
