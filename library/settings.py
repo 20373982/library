@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user.apps.UserConfig',
+    'backend.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -46,7 +46,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'user.middleware.auth.qualify',
 ]
 
 ROOT_URLCONF = 'library.urls'
@@ -54,7 +53,7 @@ ROOT_URLCONF = 'library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'user/templates']
+        'DIRS': [BASE_DIR / 'backend/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -85,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'library',
         'USER': 'root',
-        'PASSWORD': 'fbnq11235',
+        'PASSWORD': '221016',
         'HOST': '127.0.0.1',
         'PORT': 3306,
     }

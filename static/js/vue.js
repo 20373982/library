@@ -380,7 +380,7 @@
        */
       ignoredElements: [],
       /**
-       * Custom user key aliases for v-on
+       * Custom backend key aliases for v-on
        */
       // $flow-disable-line
       keyCodes: Object.create(null),
@@ -1639,7 +1639,7 @@
       return children;
   }
   // 2. When the children contains constructs that always generated nested Arrays,
-  // e.g. <template>, <slot>, v-for, or when the children is provided by user
+  // e.g. <template>, <slot>, v-for, or when the children is provided by backend
   // with hand-written render functions / JSX. In such cases a full normalization
   // is needed to cater to all possible types of children values.
   function normalizeChildren(children) {
@@ -2435,7 +2435,7 @@
       // @ts-expect-error
       vm._c = function (a, b, c, d) { return createElement$1(vm, a, b, c, d, false); };
       // normalization is always applied for the public version, used in
-      // user-written render functions.
+      // backend-written render functions.
       // @ts-expect-error
       vm.$createElement = function (a, b, c, d) { return createElement$1(vm, a, b, c, d, true); };
       // $attrs & $listeners are exposed for easier HOC creation.
@@ -3149,8 +3149,8 @@
       // This ensures that:
       // 1. Components are updated from parent to child. (because parent is always
       //    created before the child)
-      // 2. A component's user watchers are run before its render watcher (because
-      //    user watchers are created before the render watcher)
+      // 2. A component's backend watchers are run before its render watcher (because
+      //    backend watchers are created before the render watcher)
       // 3. If a component is destroyed during a parent component's watcher run,
       //    its watchers can be skipped.
       queue.sort(sortCompareFn);
@@ -3683,7 +3683,7 @@
               return config.errorHandler.call(null, err, vm, info);
           }
           catch (e) {
-              // if the user intentionally throws the original error in the handler,
+              // if the backend intentionally throws the original error in the handler,
               // do not log it twice
               if (e !== err) {
                   logError(e, null, 'config.errorHandler');
@@ -7252,7 +7252,7 @@
       var elm = vnode.elm;
       var oldAttrs = oldVnode.data.attrs || {};
       var attrs = vnode.data.attrs || {};
-      // clone observed objects, as the user probably wants to mutate it
+      // clone observed objects, as the backend probably wants to mutate it
       if (isDef(attrs.__ob__) || isTrue(attrs._v_attr_proxy)) {
           attrs = vnode.data.attrs = extend({}, attrs);
       }
@@ -7907,7 +7907,7 @@
   // normalize v-model event tokens that can only be determined at runtime.
   // it's important to place the event as the first in the array because
   // the whole point is ensuring the v-model callback gets called before
-  // user-attached handlers.
+  // backend-attached handlers.
   function normalizeEvents(on) {
       /* istanbul ignore if */
       if (isDef(on[RANGE_TOKEN])) {
@@ -8005,7 +8005,7 @@
       var elm = vnode.elm;
       var oldProps = oldVnode.data.domProps || {};
       var props = vnode.data.domProps || {};
-      // clone observed objects, as the user probably wants to mutate it
+      // clone observed objects, as the backend probably wants to mutate it
       if (isDef(props.__ob__) || isTrue(props._v_attr_proxy)) {
           props = vnode.data.domProps = extend({}, props);
       }
@@ -8225,7 +8225,7 @@
       var oldStyle = oldStaticStyle || oldStyleBinding;
       var style = normalizeStyleBinding(vnode.data.style) || {};
       // store normalized style under a different key for next diff
-      // make sure to clone it if it's reactive, since the user likely wants
+      // make sure to clone it if it's reactive, since the backend likely wants
       // to mutate it.
       vnode.data.normalizedStyle = isDef(style.__ob__) ? extend({}, style) : style;
       var newStyle = getStyle(vnode, true);

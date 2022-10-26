@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>Register</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <form method="POST" action="{% if category == 0 %}
+            /user/register/
+            {% else %}
+            /administrator/register/
+            {% endif %} ">
+                {% csrf_token %}
+                <div class="form-group">
+                    {% if category == 0 %}
+                        <label for="username">UserName</label>
+                    {% else %}
+                        <label for="username">AdministratorName</label>
+                    {% endif %}
+
+                    <input type="text" name="username" class="form-control" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" required>
+                    <div id="pwd_msg" style="color: red"></div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm password</label>
+                    <input type="password" name="confirm_password" class="form-control" id="confirm_password" required>
+                    <div id="com_msg" style="color: red"></div>
+                </div>
+                <button id="submit" type="submit" class="btn btn-primary" style="background-color: #240000">Register
+                </button>
+            </form>
+            <hr>
+            <div style="height: 10px"></div>
+            {% if category == 0 %}
+                <div class="text-center">
+                    <a href="/registerA/">create administrator account</a>
+                </div>
+            {% else %}
+                <div class="text-center">
+                    <a href="/registerC/">create user account</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        let ass = document.getElementsByClassName('library-0')
+        for (let i = 0; i < ass.length; i++) {
+            ass[i].className = 'layui-nav-item'
+        }
+        let pos = document.querySelector('#library_register')
+        pos.className = 'layui-nav-item layui-this'
+
+        let sub = document.querySelector('#submit')
+
+        let pwd = document.querySelector('#password')
+        pwd.onblur = function () {
+            let msg = document.querySelector('#pwd_msg')
+            if (pwd.value.length !== 0 && (pwd.value.length < 6 || pwd.value.length > 15)) {
+                msg.innerHTML = '请输入6~15位的密码'
+            } else {
+                msg.innerHTML = ''
+            }
+        }
+
+        let com = document.querySelector('#confirm_password')
+        com.onblur = function () {
+            let msg = document.querySelector('#com_msg')
+            if (pwd.value === com.value) {
+                msg.innerHTML = ''
+                sub.disabled = ''
+            } else {
+                msg.innerHTML = '密码不一致'
+                sub.disabled = "disabled"
+            }
+        }
+    </script>
+{% endblock %}

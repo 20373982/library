@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from user import views
+from backend import views
 
 urlpatterns = [
-    path('login/', views.user_login, name='login'),
-    path('admin/', views.admin_login, name='admin'),
-    path('top/', views.top_page, name='top'),
-    path('logout/', views.logout, name='logout')
+    # 用户登录系统
+    path('test/', views.test),
+    path('loginC/', views.user_login, name='user_login'),
+    path('loginA/', views.admin_login, name='admin_login'),
+    path('logout/', views.logout, name='logout'),
+    path('registerC/', views.user_register, name='user_register'),
+    path('registerA/', views.admin_register, name='admin_register'),
 ]
