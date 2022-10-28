@@ -11,11 +11,17 @@ class qualify(MiddlewareMixin):
             return
         if request.path_info == "/loginA/":
             return
-
+        if request.path_info == '/registerC/':
+            return
+        if request.path_info == '/registerA/':
+            return
         # 获取session信息
         info = request.session.get("info")
         if info:
             return
 
         # session信息为空，返回登录页面
-        return redirect("/login/")
+        return redirect("/loginC/")
+
+    def process_response(self, request, response):
+        return response

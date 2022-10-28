@@ -10,9 +10,9 @@
             <form method="POST"
                   action=
                           "{% if category == 0 %}
-                /user/login/
+                /loginC/
                 {% else %}
-                /administrator/login/
+                /loginA/
                 {% endif %} ">
                 {% csrf_token %}
                 {% if error %}
