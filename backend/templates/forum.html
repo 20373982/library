@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>这里是论坛</div>
+    {% if type == 1 %}
+        <div>这里是主题下的讨论内容</div>
+        {% for item in comments %}
+            <div>{{ item.content }}</div>
+            <span>
+                <a href="/commentD/?nid={{ item.id }}&&topic={{ item.topic }}">删除</a>
+                <a href="/commentA/?nid={{ item.id }}&&topic={{ item.topic }}">回复</a>
+            </span>
+        {% endfor %}
+        <a href="/commentA/?nid={{ 1 }}&&topic={{ topic }}">我要评论</a>
+    {% elif type == 0 %}
+        <div>这里是讨论主题列表</div>
+        {% for item in topics %}
+            <div>
+                <a href="/forum/?topic={{ item.id }}">{{ item.title }}</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

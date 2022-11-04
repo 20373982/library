@@ -6,6 +6,7 @@ class Book:
         self.book_introduction = inf[3]
         self.book_hot = inf[4]
         self.book_path = inf[5]
+        self.status = inf[6]
 
     def check(self) -> str:
         s = ''
@@ -19,8 +20,8 @@ class Book:
     def get_model():
         return '(' + 'book_id' + ',' + 'book_name' + ',' \
                + 'book_writer' + ',' + 'book_introduction' + ',' \
-               + 'book_hot' + "," + 'book_path' + ')'
+               + 'book_hot' + "," + 'book_path' + ',' + 'status' + ')'
 
     @staticmethod
     def get_att():
-        return 'book_id', 'book_name', 'book_writer', 'book_introduction', 'book_hot', 'book_path'
+        return 'book_id', 'book_name', 'book_writer', 'book_introduction', 'book_hot', 'book_path', 'status'

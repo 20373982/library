@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>这里是管理员界面</div>
+    <div><a href="/bookadd/">添加书籍</a></div>
+    <div>这里是借阅者列表</div>
+    {% for item in customers %}
+        <div>{{ item.name }}</div>
+    {% endfor %}
+</body>
+</html>

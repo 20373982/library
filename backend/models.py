@@ -52,6 +52,11 @@ class Book(models.Model):
     book_introduction = models.CharField(max_length=300, default="nothing")
     book_hot = models.SmallIntegerField(default=0)
     book_path = models.CharField(max_length=50, default="/default.img")
+    status_choices = (
+        (0, "可借阅"),
+        (1, "不可借阅"),
+    )
+    status = models.SmallIntegerField(choices=status_choices)
 
 
 # create table review
@@ -65,7 +70,7 @@ class Book(models.Model):
 
 class Review(models.Model):
     review_id = models.AutoField(primary_key=True)
-    review_book = models.ForeignKey(to="Book", on_delete=models.CASCADE)
+    review_book = models.ForeignKey(to="Book", to_field="book_id", on_delete=models.CASCADE)
     review_content = models.CharField(max_length=300, null=False)
     review_mark = models.SmallIntegerField(null=False)
 
@@ -97,10 +102,10 @@ class Topic(models.Model):
 
 class Message(models.Model):
     message_id = models.AutoField(primary_key=True)
-    message_writer = models.ForeignKey(to="Borrower", on_delete=models.CASCADE)
+    message_writer = models.ForeignKey(to="Borrower", to_field="borrower_id", on_delete=models.CASCADE)
     message_content = models.CharField(max_length=30, null=False)
-    message_topic = models.ForeignKey(to="Topic", on_delete=models.CASCADE)
-    message_reply = models.ForeignKey(to="Message", on_delete=models.CASCADE)
+    message_topic = models.ForeignKey(to="Topic", to_field="topic_id", on_delete=models.CASCADE)
+    message_reply = models.ForeignKey(to="Message", to_field="message_id", on_delete=models.CASCADE)
 
 
 # CREATE TABLE Borrow_record
@@ -114,8 +119,8 @@ class Message(models.Model):
 # );
 
 class Borrow_record(models.Model):
-    borrower_id = models.ForeignKey(to="Borrower", on_delete=models.CASCADE)
-    book_id = models.ForeignKey(to="Book", on_delete=models.CASCADE)
+    borrower_id = models.ForeignKey(to="Borrower", to_field="borrower_id", on_delete=models.CASCADE)
+    book_id = models.ForeignKey(to="Book", to_field="book_id", on_delete=models.CASCADE)
     borrow_time = models.DateTimeField(null=False)
     return_time = models.DateTimeField(null=False)
 
@@ -130,8 +135,8 @@ class Borrow_record(models.Model):
 # );
 
 class Entry_record(models.Model):
-    manager_id = models.ForeignKey(to="Manager", on_delete=models.CASCADE)
-    book_id = models.ForeignKey(to="Book", on_delete=models.CASCADE)
+    manager_id = models.ForeignKey(to="Manager", to_field="manager_id", on_delete=models.CASCADE)
+    book_id = models.ForeignKey(to="Book", to_field="book_id", on_delete=models.CASCADE)
     time = models.DateTimeField(null=False)
 
 # CREATE TABLE default_record
@@ -144,6 +149,11 @@ class Entry_record(models.Model):
 # );
 
 class Default_record(models.Model):
-    borrower_id = models.ForeignKey(to="Borrower", on_delete=models.CASCADE)
-    book_id = models.ForeignKey(to="Book", on_delete=models.CASCADE)
+    borrower_id = models.ForeignKey(to="Borrower", to_field="borrower_id", on_delete=models.CASCADE)
+    book_id = models.ForeignKey(to="Book", to_field="book_id", on_delete=models.CASCADE)
     return_time = models.DateTimeField(null=False)
+
+
+class Borrower_book(models.Model):
+    borrower_id = models.ForeignKey(to="Borrower", to_field="borrower_id", on_delete=models.CASCADE)
+    book_id = models.ForeignKey(to="Book", to_field="book_id", on_delete=models.CASCADE)

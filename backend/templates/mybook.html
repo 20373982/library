@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>这是用户正在借阅的图书的编号列表</div>
+    {% for item in books %}
+        <div>{{ item.id }}</div>
+        <div><a href="/returnbook/?nid={{ item.id }}">归还书籍</a></div>
+    {% endfor %}
+</body>
+</html>
